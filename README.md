@@ -35,6 +35,16 @@ you add one, check it first. Notes on the ones that are deliberately absent:
 
 ## Copy rules
 
+- **Do not name the day-job employer.** It is described as "a large enterprise
+  software company" on purpose. Daniel's call, 2026-07-16. Do not "helpfully"
+  restore the name. Naming the pre-acquisition company instead leaks the same
+  fact, since the acquisition is public, so that is not a workaround either.
+  This README is itself published, so do not write the name here to explain the
+  rule.
+- **The AWS certs are EXPIRED** (earned Feb 2023, Associate certs run 3 years,
+  lapsed 2026). They are dated "2023 to 2026" using the page's own past-tense
+  range convention. Never present them as current.
+
 - **Do not name a legal entity for Whole Yield.** None is filed. See the
   `wholeyield-site` README for the full reasoning.
 - **Perfume(D)ecay is that show's real styling** (its own title tag, Apple, and
