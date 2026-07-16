@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel Horne</title>
+<meta name="description" content="Daniel Horne builds conversational AI for enterprises and software and media of his own in Phoenix, Arizona.">
+<link rel="canonical" href="https://danielhorne.com/">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf7f1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17140e">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🌾</text></svg>">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Daniel Horne">
+<meta property="og:description" content="Builds conversational AI for enterprises, and software and media of his own. Phoenix, Arizona.">
+<meta property="og:url" content="https://danielhorne.com/">
+
+<style>
+:root{
+  --bg:#faf7f1; --surface:#fffdf8; --surface2:#f4efe4;
+  --ink:#2b2417; --ink2:#6b5f4a; --ink3:#a3947a;
+  --line:#e8e0d0; --line2:#d9cfba;
+  --accent:#9a5b1b; --accent-ink:#7d4712; --accent-soft:#f7e8d0;
+  --shadow:0 1px 2px rgba(43,36,23,.06),0 8px 24px -12px rgba(43,36,23,.18);
+  --serif:'Iowan Old Style',Palatino,'Palatino Linotype',Charter,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --radius:12px;
+  --max:760px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#17140e; --surface:#1f1b12; --surface2:#282215;
+    --ink:#ece2cd; --ink2:#b3a68d; --ink3:#7d7259;
+    --line:#332d1e; --line2:#453c28;
+    --accent:#edb135; --accent-ink:#f3c45e; --accent-soft:#3a2f14;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -12px rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font:16px/1.65 var(--sans);
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  padding:0 20px;
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+::selection{background:var(--accent-soft)}
+.wrap{max-width:var(--max);margin:0 auto}
+
+header{padding:64px 0 0}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .mark{font-size:22px;line-height:1}
+.brand .name{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.01em}
+.rule{height:1px;background:var(--line);margin:22px 0 0}
+
+.hero{padding:44px 0 8px}
+h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(30px,5.2vw,42px);line-height:1.22;
+  letter-spacing:-.01em;margin-bottom:16px;
+}
+.lede{font-size:18px;color:var(--ink2);max-width:56ch}
+.lede + .lede{margin-top:14px}
+
+section{padding:40px 0 0}
+h2{
+  font-size:12px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink3);font-weight:700;margin-bottom:18px;
+}
+.prose p{color:var(--ink2);max-width:62ch}
+.prose p + p{margin-top:14px}
+
+/* credentials */
+.creds{list-style:none;margin-top:4px}
+.creds li{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:11px 0;color:var(--ink2);
+}
+.creds li + li{border-top:1px solid var(--line)}
+.creds .yr{
+  font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12.5px;
+  color:var(--ink3);flex:none;width:92px;padding-top:3px;
+}
+.creds .body strong{color:var(--ink);font-weight:600}
+
+/* projects */
+.venture{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;box-shadow:var(--shadow);
+}
+.venture + .venture{margin-top:14px}
+.vhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.venture h3{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.01em}
+.venture h3 a{border-bottom:1px solid transparent}
+.venture h3 a:hover{border-bottom-color:currentColor}
+.role{
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  color:var(--accent-ink);background:var(--accent-soft);
+  padding:3px 9px;border-radius:99px;
+}
+.venture p{margin-top:11px;color:var(--ink2)}
+.vlink{margin-top:11px;font-size:14.5px;font-weight:600}
+.vsoon{margin-top:11px;font-size:14px;color:var(--ink3)}
+
+.contact a{font-family:var(--serif);font-size:21px;font-weight:700}
+.contact .where{margin-top:8px;color:var(--ink3);font-size:15px}
+.elsewhere{margin-top:14px;font-size:15px;color:var(--ink2)}
+
+footer{
+  margin-top:56px;padding:20px 0 48px;border-top:1px solid var(--line);
+  color:var(--ink3);font-size:14px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <span class="mark" aria-hidden="true">🌾</span>
+      <span class="name">Daniel Horne</span>
+    </div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>I build conversational AI for large companies, and software and media of my own.</h1>
+      <p class="lede">Phoenix, Arizona. By day I do enterprise conversational AI implementation at Workday. The rest of the time I build and ship my own projects under Whole Yield, and co-host a podcast about scripture.</p>
+    </div>
+
+    <section>
+      <h2>Background</h2>
+      <div class="prose">
+        <p>I am technical and hands-on. I write the code, design the systems, and run them in production. Recent work of my own includes audio signal-processing pipelines, a Bible study app with a dramatized audio companion, machine-learning training on my own GPU boxes, and a governance server modeled on Wikipedia's editorial practices.</p>
+        <p>Before this I spent about a decade running a small land investment business. I learned direct-response marketing, CRM automation, deal structure, and how to manage a distributed team, and I learned what it costs to wind something down properly rather than walk away from it.</p>
+      </div>
+      <ul class="creds">
+        <li>
+          <span class="yr">Now</span>
+          <span class="body"><strong>Enterprise conversational AI, Workday</strong><br>Implementation work, previously at Paradox before the 2025 acquisition.</span>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <span class="body"><strong>AWS Certified Solutions Architect, Associate</strong><br>Also AWS Certified Cloud Practitioner.</span>
+        </li>
+        <li>
+          <span class="yr">2015 to 2025</span>
+          <span class="body"><strong>Founder, land investment business</strong><br>Acquisition, deal structuring, and a distributed team. Wound down deliberately.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What I have built</h2>
+
+      <article class="venture">
+        <div class="vhead">
+          <h3><a href="https://wholeyield.com">Whole Yield</a></h3>
+          <span class="role">The studio</span>
+        </div>
+        <p>The one-person studio the rest of this work lives under. Few projects, carried a long way, rather than many carried a little.</p>
+        <p class="vlink"><a href="https://wholeyield.com">wholeyield.com &rarr;</a></p>
+      </article>
+
+      <article class="venture">
+        <div class="vhead">
+          <h3><a href="https://perfumeddecay.com">Perfume(D)ecay</a></h3>
+          <span class="role">Podcast, co-hosted</span>
+        </div>
+        <p>A deep, honest dissection of the word of God and the effect it has on our lives and on the world. I co-host it with two others as equal partners, and I handle the production and the audio tooling behind it.</p>
+        <p class="vlink"><a href="https://perfumeddecay.com">perfumeddecay.com &rarr;</a></p>
+      </article>
+
+      <article class="venture">
+        <div class="vhead">
+          <h3>Manna</h3>
+          <span class="role">Bible study app</span>
+        </div>
+        <p>A Bible reading and study app built on a public-domain translation, paired with Manna Radio Theater, a dramatized audio companion that keeps the scripture text verbatim. Built so the plain text is always one tap away from anything else on the screen.</p>
+        <p class="vsoon">In private beta.</p>
+      </article>
+
+      <article class="venture">
+        <div class="vhead">
+          <h3>Lucentcast</h3>
+          <span class="role">Podcast post-production</span>
+        </div>
+        <p>Productized post-production for independent podcasters. A raw recording goes in and a release-ready episode comes back: mastered audio, a transcript, show notes, and chapter markers. Software end to end, with a human quality check on every delivery.</p>
+        <p class="vsoon">Launching soon.</p>
+      </article>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <a href="mailto:danielh@wholeyield.com">danielh@wholeyield.com</a>
+      <p class="where">Phoenix, Arizona</p>
+      <p class="elsewhere">Also on <a href="https://www.linkedin.com/in/daniel-horne-7129b4229">LinkedIn</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Daniel Horne</span>
+    <span>Phoenix, Arizona</span>
+  </footer>
+
+</div>
+</body>
+</html>
