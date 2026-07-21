@@ -42,8 +42,12 @@ you add one, check it first. Notes on the ones that are deliberately absent:
   This README is itself published, so do not write the name here to explain the
   rule.
 - **The AWS certs are EXPIRED** (earned Feb 2023, Associate certs run 3 years,
-  lapsed 2026). They are dated "2023 to 2026" using the page's own past-tense
-  range convention. Never present them as current.
+  lapsed 2026). The year column reads "Expired 2026", NOT a range. Daniel chose
+  this over "2023 to 2026" on 2026-07-21: every other row uses that column for a
+  span during which the thing was true, so a range scans as "held through 2026"
+  to anyone who reads the year and moves on, and it is currently 2026. The date
+  itself has to carry the truth, because the body text only rescues a reader who
+  does not skim. Never present them as current, and never restore a range here.
 
 - **Do not name a legal entity for Whole Yield.** None is filed. See the
   `wholeyield-site` README for the full reasoning.
