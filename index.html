@@ -25,117 +25,141 @@
   --line:#d8d3c8; --hot:#d4442a; --panel:#ebe7df;
   --display:'Instrument Serif',Georgia,'Times New Roman',serif;
   --sans:'InterVar',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --max:1080px;
+  /* no max-width anywhere: the page is a fraction of the viewport */
+  --margin:40px; --gutter:20px; --cols:12;
+  /* non-linear spacing scale, topping out near Locomotive's 250 and Palmer's 320 */
+  --s-sm:30px; --s-md:52px; --s-lg:88px; --s-xl:150px; --s-2xl:220px; --s-3xl:300px;
 }
-@media (prefers-color-scheme:dark){
-  :root{--paper:#100f0d;--ink:#f2efe8;--ink2:#a49d91;--ink3:#6d675d;
-    --line:#2a2723;--hot:#ff6a4d;--panel:#1a1815}
-}
+@media (max-width:1024px){:root{--margin:20px;--gutter:20px;--cols:8;
+  --s-lg:60px;--s-xl:88px;--s-2xl:120px;--s-3xl:150px}}
+@media (max-width:699px){:root{--cols:4;--gutter:10px;
+  --s-md:36px;--s-lg:48px;--s-xl:64px;--s-2xl:84px;--s-3xl:100px}}
+
 *{box-sizing:border-box;margin:0;padding:0}
 body{font:16px/1.6 var(--sans);background:var(--paper);color:var(--ink);
-  -webkit-font-smoothing:antialiased;padding:0 clamp(20px,5vw,64px);
+  -webkit-font-smoothing:antialiased;padding:0 var(--margin);
   font-variant-ligatures:common-ligatures}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--hot);color:var(--paper)}
-.wrap{max-width:var(--max);margin:0 auto}
+
+.g{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--gutter)}
 .mono{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink3)}
+.rule{grid-column:1/-1;height:1px;background:var(--ink);margin:0}
+.hair{grid-column:1/-1;height:1px;background:var(--line)}
 
 /* masthead */
-.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:28px 0 0;border-bottom:1px solid var(--ink);padding-bottom:14px;flex-wrap:wrap}
-.top .name{font-family:var(--display);font-size:21px;letter-spacing:.01em}
+.top{padding:24px 0 14px;align-items:baseline}
+.top .name{grid-column:1/span 6;font-family:var(--display);font-size:clamp(19px,1.6vw,24px)}
+.top .loc{grid-column:-4/-1;text-align:right}
+@media(max-width:699px){.top .name{grid-column:1/span 2}.top .loc{grid-column:3/-1}}
 
-/* hero */
-.hero{padding:clamp(48px,9vw,110px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--line)}
-h1{font-family:var(--display);font-weight:400;
-  font-size:clamp(44px,9.2vw,116px);line-height:.94;letter-spacing:-.022em;
-  max-width:15ch;margin-bottom:clamp(28px,4vw,44px)}
+/* hero, edge to edge */
+.hero{padding:var(--s-xl) 0 var(--s-lg)}
+h1{grid-column:1/-1;font-family:var(--display);font-weight:400;
+  font-size:clamp(46px,11.4vw,190px);line-height:.9;letter-spacing:-.035em}
 h1 em{font-style:italic;color:var(--hot)}
-.lede{font-size:clamp(17px,1.9vw,21px);line-height:1.5;color:var(--ink2);max-width:46ch;
-  margin-left:auto;max-width:min(46ch,100%)}
-.herofoot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:8px}
+.herofoot{margin-top:var(--s-lg);align-items:end}
+.herofoot .lbl{grid-column:1/span 2}
+.lede{grid-column:-6/-1;font-size:clamp(17px,1.5vw,22px);line-height:1.45;color:var(--ink2)}
+@media(max-width:1024px){.lede{grid-column:-6/-1}}
+@media(max-width:699px){.herofoot .lbl{grid-column:1/-1}.lede{grid-column:1/-1;margin-top:14px}}
 
-/* generic section */
-section{padding:clamp(56px,7vw,96px) 0 0}
-.shead{display:grid;grid-template-columns:180px 1fr;gap:32px;align-items:baseline;
-  border-top:1px solid var(--ink);padding-top:18px;margin-bottom:clamp(28px,4vw,48px)}
-.shead h2{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);font-weight:400;
-  letter-spacing:-.015em;line-height:1.05}
+section{padding:var(--s-2xl) 0 0}
+.shead{padding-top:18px;align-items:baseline}
+.shead .lbl{grid-column:1/span 2}
+.shead h2{grid-column:4/-1;font-family:var(--display);font-weight:400;
+  font-size:clamp(26px,4.4vw,64px);letter-spacing:-.028em;line-height:1.02}
+@media(max-width:1024px){.shead h2{grid-column:3/-1}}
+@media(max-width:699px){.shead .lbl,.shead h2{grid-column:1/-1}.shead h2{margin-top:12px}}
 
-.cols{display:grid;grid-template-columns:180px 1fr;gap:32px}
-.prose p{color:var(--ink2);max-width:58ch;font-size:17px}
+.block{margin-top:var(--s-lg)}
+.block .lbl{grid-column:1/span 2}
+.prose{grid-column:4/span 6;max-width:35em;color:var(--ink2);font-size:clamp(16px,1.15vw,18px)}
 .prose p+p{margin-top:20px}
+@media(max-width:1024px){.prose{grid-column:3/-1}}
+@media(max-width:699px){.block .lbl,.prose{grid-column:1/-1}.prose{margin-top:12px}}
 
-/* the pull quote, the emotional center of the page */
-.pull{margin:clamp(40px,6vw,72px) 0 0;padding:clamp(28px,4vw,44px) 0;
+/* pull quote, allowed to run the full measure */
+.pull{margin-top:var(--s-xl);padding:var(--s-md) 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pull p{font-family:var(--display);font-size:clamp(24px,3.6vw,44px);line-height:1.14;
-  letter-spacing:-.018em;color:var(--ink);max-width:22ch}
-.pull .attrib{margin-top:20px;max-width:60ch;color:var(--ink2);font-size:16px}
+.pull .q{grid-column:1/span 9;font-family:var(--display);
+  font-size:clamp(28px,6.4vw,104px);line-height:.98;letter-spacing:-.032em;color:var(--ink)}
+.pull .attrib{grid-column:-6/-1;max-width:34em;margin-top:var(--s-sm);color:var(--ink2);
+  font-size:clamp(15px,1.05vw,16.5px)}
+@media(max-width:1024px){.pull .q{grid-column:1/-1}.pull .attrib{grid-column:1/-1}}
 
-/* credentials */
-.creds{list-style:none;margin-top:8px}
-.creds li{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:22px 0;
-  border-top:1px solid var(--line);align-items:baseline}
+.creds{list-style:none;margin-top:var(--s-lg)}
+.creds li{padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
 .creds li:last-child{border-bottom:1px solid var(--line)}
-.creds .yr{font-variant-numeric:tabular-nums}
-.creds strong{display:block;font-weight:500;font-size:18px;letter-spacing:-.012em;margin-bottom:6px}
-.creds .sub{color:var(--ink2);font-size:15.5px;max-width:52ch}
+.creds .yr{grid-column:1/span 2;font-variant-numeric:tabular-nums}
+.creds .c{grid-column:4/span 7}
+.creds strong{display:block;font-weight:500;font-size:clamp(17px,1.3vw,21px);
+  letter-spacing:-.016em;margin-bottom:7px}
+.creds .sub{color:var(--ink2);font-size:clamp(15px,1.05vw,16.5px)}
+@media(max-width:1024px){.creds .c{grid-column:3/-1}}
+@media(max-width:699px){.creds .yr,.creds .c{grid-column:1/-1}.creds .c{margin-top:8px}}
 
-/* work */
-.work{border-top:1px solid var(--line)}
-.item{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:clamp(26px,3.4vw,40px) 0;
-  border-bottom:1px solid var(--line);align-items:start;transition:background .18s ease}
+/* work, full-width rows */
+.work{margin-top:var(--s-lg);border-top:1px solid var(--line)}
+.item{padding:var(--s-md) 0;border-bottom:1px solid var(--line);
+  align-items:start;transition:background .18s ease}
 .item:hover{background:var(--panel)}
-.item h3{font-family:var(--display);font-size:clamp(28px,4vw,46px);font-weight:400;
-  line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
+.item .lbl{grid-column:1/span 2}
+.item .c{grid-column:4/span 7}
+.item .act{grid-column:-3/-1;text-align:right}
+.item h3{font-family:var(--display);font-weight:400;
+  font-size:clamp(30px,5vw,72px);line-height:.98;letter-spacing:-.03em;margin-bottom:16px}
 .item:hover h3{color:var(--hot)}
-.item p{color:var(--ink2);font-size:16px;max-width:54ch}
-.go{display:inline-block;margin-top:16px;font-size:15px;font-weight:500;
-  border-bottom:2px solid var(--hot);padding-bottom:2px}
-.soon{display:inline-block;margin-top:16px}
+.item p{color:var(--ink2);font-size:clamp(15px,1.1vw,17px);max-width:34em}
+.go{font-size:15px;font-weight:500;border-bottom:2px solid var(--hot);padding-bottom:2px}
+@media(max-width:1024px){.item .c{grid-column:3/-1}.item .act{grid-column:1/-1;text-align:left;margin-top:16px}}
+@media(max-width:699px){.item .lbl,.item .c{grid-column:1/-1}.item .c{margin-top:10px}}
 
-/* contact */
-.contact{padding:clamp(64px,8vw,110px) 0 0}
-.cmail{font-family:var(--display);font-weight:400;
-  font-size:clamp(30px,6.4vw,80px);line-height:1;letter-spacing:-.028em;
-  display:inline-block;word-break:break-word}
+/* contact, the biggest thing on the page */
+.contact{padding-top:var(--s-3xl)}
+.contact .lbl{grid-column:1/-1;margin-bottom:var(--s-sm)}
+.cmail{grid-column:1/-1;font-family:var(--display);font-weight:400;
+  font-size:clamp(30px,8.6vw,148px);line-height:.92;letter-spacing:-.04em;word-break:break-word}
 .cmail:hover{color:var(--hot)}
-.cbits{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px}
-.cbits a{border-bottom:2px solid var(--hot);padding-bottom:2px;font-weight:500}
+.cbits{margin-top:var(--s-md)}
+.cbits .a{grid-column:1/span 3}
+.cbits .b{grid-column:4/span 3}
+@media(max-width:699px){.cbits .a,.cbits .b{grid-column:1/-1}.cbits .b{margin-top:10px}}
+.cbits a{border-bottom:2px solid var(--hot);padding-bottom:2px;font-weight:500;color:var(--ink)}
 
-footer{margin-top:clamp(72px,9vw,120px);padding:20px 0 56px;border-top:1px solid var(--ink);
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-@media(max-width:760px){
-  .shead,.cols,.creds li,.item{grid-template-columns:1fr;gap:10px}
-  .herofoot{grid-template-columns:1fr}
-  .pull p{max-width:none}
-}
+footer{margin-top:var(--s-2xl);padding:20px 0 var(--s-md);border-top:1px solid var(--ink)}
+footer .a{grid-column:1/span 6}
+footer .b{grid-column:-4/-1;text-align:right}
+@media(max-width:699px){footer .a{grid-column:1/span 2}footer .b{grid-column:3/-1}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="top">
+  <div class="g top">
     <span class="name">Daniel Horne</span>
-    <span class="mono">Phoenix, Arizona</span>
+    <span class="mono loc">Phoenix, Arizona</span>
   </div>
+  <div class="g"><div class="rule"></div></div>
 
   <header class="hero">
-    <h1>I build conversational AI for large companies, and software and media of <em>my own.</em></h1>
-    <div class="herofoot">
-      <span class="mono">Currently</span>
+    <div class="g"><h1>I build conversational AI for large companies, and software and media of <em>my own.</em></h1></div>
+    <div class="g herofoot">
+      <span class="mono lbl">Currently</span>
       <p class="lede">By day I do conversational AI implementation at a large enterprise software company. The rest of the time I build and ship my own projects under Whole Yield, and co-host a podcast about scripture.</p>
     </div>
   </header>
 
   <main>
     <section>
-      <div class="shead"><span class="mono">01 / Background</span><h2>I write the code, design the systems, and run them in production.</h2></div>
-      <div class="cols">
-        <span class="mono">Detail</span>
+      <div class="g"><div class="rule"></div></div>
+      <div class="g shead">
+        <span class="mono lbl">01 / Background</span>
+        <h2>I write the code, design the systems, and run them in production.</h2>
+      </div>
+
+      <div class="g block">
+        <span class="mono lbl">Detail</span>
         <div class="prose">
           <p>Recent work of my own includes audio signal-processing pipelines, a Bible study app with a dramatized audio companion, machine-learning training on my own GPU boxes, and a governance server modeled on Wikipedia's editorial practices.</p>
           <p>Before this I spent about a decade running a small land investment business. I learned direct-response marketing, CRM automation, deal structure, and how to manage a distributed team.</p>
@@ -143,75 +167,77 @@ footer{margin-top:clamp(72px,9vw,120px);padding:20px 0 56px;border-top:1px solid
       </div>
 
       <div class="pull">
-        <p>I closed it rather than keep going.</p>
-        <p class="attrib">I became a Christian in 2022, and in time I could not square some of how I was running that business with what I had come to believe. Winding it down left debts I could have walked away from, and I paid them off in full instead. That is the part of the decade I would actually point to.</p>
+        <div class="g"><p class="q">I closed it rather than keep going.</p></div>
+        <div class="g"><p class="attrib">I became a Christian in 2022, and in time I could not square some of how I was running that business with what I had come to believe. Winding it down left debts I could have walked away from, and I paid them off in full instead. That is the part of the decade I would actually point to.</p></div>
       </div>
 
       <ul class="creds">
-        <li><span class="mono yr">Now</span><span><strong>Enterprise conversational AI</strong><span class="sub">Implementation work at a large enterprise software company.</span></span></li>
-        <li><span class="mono yr">Expired 2026</span><span><strong>AWS Certified Solutions Architect, Associate</strong><span class="sub">Cloud Practitioner as well. Certified in 2023, not renewed since.</span></span></li>
-        <li><span class="mono yr">2015 to 2025</span><span><strong>Founder, land investment business</strong><span class="sub">Acquisition, deal structuring, and a distributed team. Closed on conviction, debts paid in full.</span></span></li>
+        <li class="g"><span class="mono yr">Now</span><span class="c"><strong>Enterprise conversational AI</strong><span class="sub">Implementation work at a large enterprise software company.</span></span></li>
+        <li class="g"><span class="mono yr">Expired 2026</span><span class="c"><strong>AWS Certified Solutions Architect, Associate</strong><span class="sub">Cloud Practitioner as well. Certified in 2023, not renewed since.</span></span></li>
+        <li class="g"><span class="mono yr">2015 to 2025</span><span class="c"><strong>Founder, land investment business</strong><span class="sub">Acquisition, deal structuring, and a distributed team. Closed on conviction, debts paid in full.</span></span></li>
       </ul>
     </section>
 
     <section>
-      <div class="shead"><span class="mono">02 / Work</span><h2>Few projects, carried a long way.</h2></div>
-      <div class="work">
+      <div class="g"><div class="rule"></div></div>
+      <div class="g shead">
+        <span class="mono lbl">02 / Work</span>
+        <h2>Few projects, carried a long way.</h2>
+      </div>
 
-        <article class="item">
-          <span class="mono">The studio</span>
-          <div>
+      <div class="work">
+        <article class="g item">
+          <span class="mono lbl">The studio</span>
+          <div class="c">
             <h3><a href="https://wholeyield.com">Whole Yield</a></h3>
             <p>The one-person studio the rest of this work lives under. Few projects, carried a long way, rather than many carried a little.</p>
-            <a class="go" href="https://wholeyield.com">wholeyield.com</a>
           </div>
+          <span class="act"><a class="go" href="https://wholeyield.com">wholeyield.com</a></span>
         </article>
 
-        <article class="item">
-          <span class="mono">Podcast, co-hosted</span>
-          <div>
+        <article class="g item">
+          <span class="mono lbl">Podcast, co-hosted</span>
+          <div class="c">
             <h3><a href="https://perfumeddecay.com">Perfume(D)ecay</a></h3>
             <p>A deep, honest dissection of the word of God and the effect it has on our lives and on the world. I co-host it with two others as equal partners, and I handle the production and the audio tooling behind it.</p>
-            <a class="go" href="https://perfumeddecay.com">perfumeddecay.com</a>
           </div>
+          <span class="act"><a class="go" href="https://perfumeddecay.com">perfumeddecay.com</a></span>
         </article>
 
-        <article class="item">
-          <span class="mono">Bible study app</span>
-          <div>
+        <article class="g item">
+          <span class="mono lbl">Bible study app</span>
+          <div class="c">
             <h3>Manna</h3>
             <p>A Bible reading and study app built on a public-domain translation, paired with Manna Radio Theater, a dramatized audio companion that keeps the scripture text verbatim. Built so the plain text is always one tap away from anything else on the screen.</p>
-            <span class="mono soon">In private beta</span>
           </div>
+          <span class="mono act">In private beta</span>
         </article>
 
-        <article class="item">
-          <span class="mono">Post-production</span>
-          <div>
+        <article class="g item">
+          <span class="mono lbl">Post-production</span>
+          <div class="c">
             <h3>Lucentcast</h3>
             <p>Productized post-production for independent podcasters. A raw recording goes in and a release-ready episode comes back: mastered audio, a transcript, show notes, and chapter markers. Software end to end, with a human quality check on every delivery.</p>
-            <span class="mono soon">Launching soon</span>
           </div>
+          <span class="mono act">Launching soon</span>
         </article>
-
       </div>
     </section>
 
     <section class="contact">
-      <span class="mono">03 / Contact</span>
-      <p style="margin-top:24px"><a class="cmail" href="mailto:danielh@wholeyield.com">danielh@wholeyield.com</a></p>
-      <div class="cbits">
-        <span class="mono">Phoenix, Arizona</span>
-        <a href="https://www.linkedin.com/in/daniel-horne-7129b4229">LinkedIn</a>
+      <div class="g"><span class="mono lbl">03 / Contact</span></div>
+      <div class="g"><a class="cmail" href="mailto:danielh@wholeyield.com">danielh@wholeyield.com</a></div>
+      <div class="g cbits">
+        <span class="mono a">Phoenix, Arizona</span>
+        <span class="b"><a href="https://www.linkedin.com/in/daniel-horne-7129b4229">LinkedIn</a></span>
       </div>
     </section>
   </main>
 
-  <footer>
-    <span class="mono">&copy; 2026 Daniel Horne</span>
-    <span class="mono">Phoenix, Arizona</span>
+  <footer class="g">
+    <span class="mono a">&copy; 2026 Daniel Horne</span>
+    <span class="mono b">Phoenix, Arizona</span>
   </footer>
 
-</div>
 </body>
 </html>

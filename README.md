@@ -21,6 +21,23 @@ at weight 400, a persimmon accent, uppercase mono labels, hairline rules, no
 cards and no shadows. Whole Yield is the opposite register, modern product
 marketing in Inter with pill buttons and rounded cards.
 
+### There is deliberately NO max-width container
+
+The page is a 12-column grid derived from `100vw`, dropping to 8 columns under
+1024px and 4 under 700px. Do not "fix" this by wrapping the content in a
+centered column. All three reference sites refuse one: Locomotive's container
+computes `max-width: none` and Palmer derives every dimension from `100vw`.
+It was the most consistent finding across the three, and Daniel chose it on
+2026-07-21 after comparing a centered build against this one side by side.
+
+Body copy is capped separately, in `em`, so full-bleed does not wreck the
+reading measure. That cap is load-bearing: without it, prose ran 100 characters
+per line at 1920px. Note the caps are in `em`, NOT `ch`, and that is on purpose.
+`1ch` is the advance width of the `0` glyph, which in Inter is far wider than
+the average character, so a `72ch` cap measured ~91 real characters. If you
+change these, measure the rendered result rather than trusting the unit's name.
+Every text block currently sits between 58 and 70 characters at 1920px.
+
 An earlier version of this file said "same visual system as wholeyield-site".
 That is now wrong, and it was actively harmful: an agent read that line, treated
 the shared style as evidence of Daniel's taste, and proposed a restyle that
