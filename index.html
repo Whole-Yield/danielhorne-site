@@ -6,205 +6,210 @@
 <title>Daniel Horne</title>
 <meta name="description" content="Daniel Horne builds conversational AI for enterprises, and software and media of his own, in Phoenix, Arizona.">
 <link rel="canonical" href="https://danielhorne.com/">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf7f1">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17140e">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🌾</text></svg>">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f2ed">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#100f0d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>&#127806;</text></svg>">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Daniel Horne">
 <meta property="og:description" content="Builds conversational AI for enterprises, and software and media of his own. Phoenix, Arizona.">
 <meta property="og:url" content="https://danielhorne.com/">
-
 <style>
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrumentserif-latin.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'InterVar';src:url('fonts/inter-latin.woff2') format('woff2');
+  font-weight:400 700;font-style:normal;font-display:swap}
+
 :root{
-  --bg:#faf7f1; --surface:#fffdf8; --surface2:#f4efe4;
-  --ink:#2b2417; --ink2:#6b5f4a; --ink3:#a3947a;
-  --line:#e8e0d0; --line2:#d9cfba;
-  --accent:#9a5b1b; --accent-ink:#7d4712; --accent-soft:#f7e8d0;
-  --shadow:0 1px 2px rgba(43,36,23,.06),0 8px 24px -12px rgba(43,36,23,.18);
-  --serif:'Iowan Old Style',Palatino,'Palatino Linotype',Charter,Georgia,serif;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --radius:12px;
-  --max:760px;
+  --paper:#f4f2ed; --ink:#12100d; --ink2:#575249; --ink3:#8d867a;
+  --line:#d8d3c8; --hot:#d4442a; --panel:#ebe7df;
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'InterVar',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --max:1080px;
 }
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#17140e; --surface:#1f1b12; --surface2:#282215;
-    --ink:#ece2cd; --ink2:#b3a68d; --ink3:#7d7259;
-    --line:#332d1e; --line2:#453c28;
-    --accent:#edb135; --accent-ink:#f3c45e; --accent-soft:#3a2f14;
-    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -12px rgba(0,0,0,.6);
-  }
+@media (prefers-color-scheme:dark){
+  :root{--paper:#100f0d;--ink:#f2efe8;--ink2:#a49d91;--ink3:#6d675d;
+    --line:#2a2723;--hot:#ff6a4d;--panel:#1a1815}
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font:16px/1.65 var(--sans);
-  background:var(--bg); color:var(--ink);
-  -webkit-font-smoothing:antialiased;
-  padding:0 20px;
-}
-a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-a:hover{border-bottom-color:currentColor}
-::selection{background:var(--accent-soft)}
+body{font:16px/1.6 var(--sans);background:var(--paper);color:var(--ink);
+  -webkit-font-smoothing:antialiased;padding:0 clamp(20px,5vw,64px);
+  font-variant-ligatures:common-ligatures}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--hot);color:var(--paper)}
 .wrap{max-width:var(--max);margin:0 auto}
+.mono{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink3)}
 
-header{padding:64px 0 0}
-.brand{display:flex;align-items:baseline;gap:10px}
-.brand .mark{font-size:22px;line-height:1}
-.brand .name{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.01em}
-.rule{height:1px;background:var(--line);margin:22px 0 0}
+/* masthead */
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:28px 0 0;border-bottom:1px solid var(--ink);padding-bottom:14px;flex-wrap:wrap}
+.top .name{font-family:var(--display);font-size:21px;letter-spacing:.01em}
 
-.hero{padding:44px 0 8px}
-h1{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(30px,5.2vw,42px);line-height:1.22;
-  letter-spacing:-.01em;margin-bottom:16px;
-}
-.lede{font-size:18px;color:var(--ink2);max-width:56ch}
-.lede + .lede{margin-top:14px}
+/* hero */
+.hero{padding:clamp(48px,9vw,110px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-weight:400;
+  font-size:clamp(44px,9.2vw,116px);line-height:.94;letter-spacing:-.022em;
+  max-width:15ch;margin-bottom:clamp(28px,4vw,44px)}
+h1 em{font-style:italic;color:var(--hot)}
+.lede{font-size:clamp(17px,1.9vw,21px);line-height:1.5;color:var(--ink2);max-width:46ch;
+  margin-left:auto;max-width:min(46ch,100%)}
+.herofoot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:8px}
 
-section{padding:40px 0 0}
-h2{
-  font-size:12px;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink3);font-weight:700;margin-bottom:18px;
-}
-.prose p{color:var(--ink2);max-width:62ch}
-.prose p + p{margin-top:14px}
+/* generic section */
+section{padding:clamp(56px,7vw,96px) 0 0}
+.shead{display:grid;grid-template-columns:180px 1fr;gap:32px;align-items:baseline;
+  border-top:1px solid var(--ink);padding-top:18px;margin-bottom:clamp(28px,4vw,48px)}
+.shead h2{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);font-weight:400;
+  letter-spacing:-.015em;line-height:1.05}
+
+.cols{display:grid;grid-template-columns:180px 1fr;gap:32px}
+.prose p{color:var(--ink2);max-width:58ch;font-size:17px}
+.prose p+p{margin-top:20px}
+
+/* the pull quote, the emotional center of the page */
+.pull{margin:clamp(40px,6vw,72px) 0 0;padding:clamp(28px,4vw,44px) 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pull p{font-family:var(--display);font-size:clamp(24px,3.6vw,44px);line-height:1.14;
+  letter-spacing:-.018em;color:var(--ink);max-width:22ch}
+.pull .attrib{margin-top:20px;max-width:60ch;color:var(--ink2);font-size:16px}
 
 /* credentials */
-.creds{list-style:none;margin-top:4px}
-.creds li{
-  display:flex;gap:11px;align-items:flex-start;
-  padding:11px 0;color:var(--ink2);
-}
-.creds li + li{border-top:1px solid var(--line)}
-.creds .yr{
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12.5px;
-  color:var(--ink3);flex:none;width:92px;padding-top:3px;
-}
-.creds .body strong{color:var(--ink);font-weight:600}
+.creds{list-style:none;margin-top:8px}
+.creds li{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:22px 0;
+  border-top:1px solid var(--line);align-items:baseline}
+.creds li:last-child{border-bottom:1px solid var(--line)}
+.creds .yr{font-variant-numeric:tabular-nums}
+.creds strong{display:block;font-weight:500;font-size:18px;letter-spacing:-.012em;margin-bottom:6px}
+.creds .sub{color:var(--ink2);font-size:15.5px;max-width:52ch}
 
-/* projects */
-.venture{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:20px 22px;box-shadow:var(--shadow);
-}
-.venture + .venture{margin-top:14px}
-.vhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.venture h3{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.01em}
-.venture h3 a{border-bottom:1px solid transparent}
-.venture h3 a:hover{border-bottom-color:currentColor}
-.role{
-  font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
-  color:var(--accent-ink);background:var(--accent-soft);
-  padding:3px 9px;border-radius:99px;
-}
-.venture p{margin-top:11px;color:var(--ink2)}
-.vlink{margin-top:11px;font-size:14.5px;font-weight:600}
-.vsoon{margin-top:11px;font-size:14px;color:var(--ink3)}
+/* work */
+.work{border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:clamp(26px,3.4vw,40px) 0;
+  border-bottom:1px solid var(--line);align-items:start;transition:background .18s ease}
+.item:hover{background:var(--panel)}
+.item h3{font-family:var(--display);font-size:clamp(28px,4vw,46px);font-weight:400;
+  line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
+.item:hover h3{color:var(--hot)}
+.item p{color:var(--ink2);font-size:16px;max-width:54ch}
+.go{display:inline-block;margin-top:16px;font-size:15px;font-weight:500;
+  border-bottom:2px solid var(--hot);padding-bottom:2px}
+.soon{display:inline-block;margin-top:16px}
 
-.contact a{font-family:var(--serif);font-size:21px;font-weight:700}
-.contact .where{margin-top:8px;color:var(--ink3);font-size:15px}
-.elsewhere{margin-top:14px;font-size:15px;color:var(--ink2)}
+/* contact */
+.contact{padding:clamp(64px,8vw,110px) 0 0}
+.cmail{font-family:var(--display);font-weight:400;
+  font-size:clamp(30px,6.4vw,80px);line-height:1;letter-spacing:-.028em;
+  display:inline-block;word-break:break-word}
+.cmail:hover{color:var(--hot)}
+.cbits{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px}
+.cbits a{border-bottom:2px solid var(--hot);padding-bottom:2px;font-weight:500}
 
-footer{
-  margin-top:56px;padding:20px 0 48px;border-top:1px solid var(--line);
-  color:var(--ink3);font-size:14px;
-  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+footer{margin-top:clamp(72px,9vw,120px);padding:20px 0 56px;border-top:1px solid var(--ink);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:760px){
+  .shead,.cols,.creds li,.item{grid-template-columns:1fr;gap:10px}
+  .herofoot{grid-template-columns:1fr}
+  .pull p{max-width:none}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <div class="brand">
-      <span class="mark" aria-hidden="true">🌾</span>
-      <span class="name">Daniel Horne</span>
+  <div class="top">
+    <span class="name">Daniel Horne</span>
+    <span class="mono">Phoenix, Arizona</span>
+  </div>
+
+  <header class="hero">
+    <h1>I build conversational AI for large companies, and software and media of <em>my own.</em></h1>
+    <div class="herofoot">
+      <span class="mono">Currently</span>
+      <p class="lede">By day I do conversational AI implementation at a large enterprise software company. The rest of the time I build and ship my own projects under Whole Yield, and co-host a podcast about scripture.</p>
     </div>
-    <div class="rule"></div>
   </header>
 
   <main>
-    <div class="hero">
-      <h1>I build conversational AI for large companies, and software and media of my own.</h1>
-      <p class="lede">Phoenix, Arizona. By day I do conversational AI implementation at a large enterprise software company. The rest of the time I build and ship my own projects under Whole Yield, and co-host a podcast about scripture.</p>
-    </div>
-
     <section>
-      <h2>Background</h2>
-      <div class="prose">
-        <p>I am technical and hands-on. I write the code, design the systems, and run them in production. Recent work of my own includes audio signal-processing pipelines, a Bible study app with a dramatized audio companion, machine-learning training on my own GPU boxes, and a governance server modeled on Wikipedia's editorial practices.</p>
-        <p>Before this I spent about a decade running a small land investment business. I learned direct-response marketing, CRM automation, deal structure, and how to manage a distributed team.</p>
-        <p>I became a Christian in 2022, and in time I could not square some of how I was running that business with what I had come to believe. So I closed it rather than keep going. Winding it down left debts I could have walked away from, and I paid them off in full instead. That is the part of the decade I would actually point to.</p>
+      <div class="shead"><span class="mono">01 / Background</span><h2>I write the code, design the systems, and run them in production.</h2></div>
+      <div class="cols">
+        <span class="mono">Detail</span>
+        <div class="prose">
+          <p>Recent work of my own includes audio signal-processing pipelines, a Bible study app with a dramatized audio companion, machine-learning training on my own GPU boxes, and a governance server modeled on Wikipedia's editorial practices.</p>
+          <p>Before this I spent about a decade running a small land investment business. I learned direct-response marketing, CRM automation, deal structure, and how to manage a distributed team.</p>
+        </div>
       </div>
+
+      <div class="pull">
+        <p>I closed it rather than keep going.</p>
+        <p class="attrib">I became a Christian in 2022, and in time I could not square some of how I was running that business with what I had come to believe. Winding it down left debts I could have walked away from, and I paid them off in full instead. That is the part of the decade I would actually point to.</p>
+      </div>
+
       <ul class="creds">
-        <li>
-          <span class="yr">Now</span>
-          <span class="body"><strong>Enterprise conversational AI</strong><br>Implementation work at a large enterprise software company.</span>
-        </li>
-        <li>
-          <span class="yr">Expired 2026</span>
-          <span class="body"><strong>AWS Certified Solutions Architect, Associate</strong><br>Cloud Practitioner as well. Certified in 2023, not renewed since.</span>
-        </li>
-        <li>
-          <span class="yr">2015 to 2025</span>
-          <span class="body"><strong>Founder, land investment business</strong><br>Acquisition, deal structuring, and a distributed team. Closed on conviction, debts paid in full.</span>
-        </li>
+        <li><span class="mono yr">Now</span><span><strong>Enterprise conversational AI</strong><span class="sub">Implementation work at a large enterprise software company.</span></span></li>
+        <li><span class="mono yr">Expired 2026</span><span><strong>AWS Certified Solutions Architect, Associate</strong><span class="sub">Cloud Practitioner as well. Certified in 2023, not renewed since.</span></span></li>
+        <li><span class="mono yr">2015 to 2025</span><span><strong>Founder, land investment business</strong><span class="sub">Acquisition, deal structuring, and a distributed team. Closed on conviction, debts paid in full.</span></span></li>
       </ul>
     </section>
 
     <section>
-      <h2>What I have built</h2>
+      <div class="shead"><span class="mono">02 / Work</span><h2>Few projects, carried a long way.</h2></div>
+      <div class="work">
 
-      <article class="venture">
-        <div class="vhead">
-          <h3><a href="https://wholeyield.com">Whole Yield</a></h3>
-          <span class="role">The studio</span>
-        </div>
-        <p>The one-person studio the rest of this work lives under. Few projects, carried a long way, rather than many carried a little.</p>
-        <p class="vlink"><a href="https://wholeyield.com">wholeyield.com &rarr;</a></p>
-      </article>
+        <article class="item">
+          <span class="mono">The studio</span>
+          <div>
+            <h3><a href="https://wholeyield.com">Whole Yield</a></h3>
+            <p>The one-person studio the rest of this work lives under. Few projects, carried a long way, rather than many carried a little.</p>
+            <a class="go" href="https://wholeyield.com">wholeyield.com</a>
+          </div>
+        </article>
 
-      <article class="venture">
-        <div class="vhead">
-          <h3><a href="https://perfumeddecay.com">Perfume(D)ecay</a></h3>
-          <span class="role">Podcast, co-hosted</span>
-        </div>
-        <p>A deep, honest dissection of the word of God and the effect it has on our lives and on the world. I co-host it with two others as equal partners, and I handle the production and the audio tooling behind it.</p>
-        <p class="vlink"><a href="https://perfumeddecay.com">perfumeddecay.com &rarr;</a></p>
-      </article>
+        <article class="item">
+          <span class="mono">Podcast, co-hosted</span>
+          <div>
+            <h3><a href="https://perfumeddecay.com">Perfume(D)ecay</a></h3>
+            <p>A deep, honest dissection of the word of God and the effect it has on our lives and on the world. I co-host it with two others as equal partners, and I handle the production and the audio tooling behind it.</p>
+            <a class="go" href="https://perfumeddecay.com">perfumeddecay.com</a>
+          </div>
+        </article>
 
-      <article class="venture">
-        <div class="vhead">
-          <h3>Manna</h3>
-          <span class="role">Bible study app</span>
-        </div>
-        <p>A Bible reading and study app built on a public-domain translation, paired with Manna Radio Theater, a dramatized audio companion that keeps the scripture text verbatim. Built so the plain text is always one tap away from anything else on the screen.</p>
-        <p class="vsoon">In private beta.</p>
-      </article>
+        <article class="item">
+          <span class="mono">Bible study app</span>
+          <div>
+            <h3>Manna</h3>
+            <p>A Bible reading and study app built on a public-domain translation, paired with Manna Radio Theater, a dramatized audio companion that keeps the scripture text verbatim. Built so the plain text is always one tap away from anything else on the screen.</p>
+            <span class="mono soon">In private beta</span>
+          </div>
+        </article>
 
-      <article class="venture">
-        <div class="vhead">
-          <h3>Lucentcast</h3>
-          <span class="role">Podcast post-production</span>
-        </div>
-        <p>Productized post-production for independent podcasters. A raw recording goes in and a release-ready episode comes back: mastered audio, a transcript, show notes, and chapter markers. Software end to end, with a human quality check on every delivery.</p>
-        <p class="vsoon">Launching soon.</p>
-      </article>
+        <article class="item">
+          <span class="mono">Post-production</span>
+          <div>
+            <h3>Lucentcast</h3>
+            <p>Productized post-production for independent podcasters. A raw recording goes in and a release-ready episode comes back: mastered audio, a transcript, show notes, and chapter markers. Software end to end, with a human quality check on every delivery.</p>
+            <span class="mono soon">Launching soon</span>
+          </div>
+        </article>
+
+      </div>
     </section>
 
     <section class="contact">
-      <h2>Contact</h2>
-      <a href="mailto:danielh@wholeyield.com">danielh@wholeyield.com</a>
-      <p class="where">Phoenix, Arizona</p>
-      <p class="elsewhere">Also on <a href="https://www.linkedin.com/in/daniel-horne-7129b4229">LinkedIn</a>.</p>
+      <span class="mono">03 / Contact</span>
+      <p style="margin-top:24px"><a class="cmail" href="mailto:danielh@wholeyield.com">danielh@wholeyield.com</a></p>
+      <div class="cbits">
+        <span class="mono">Phoenix, Arizona</span>
+        <a href="https://www.linkedin.com/in/daniel-horne-7129b4229">LinkedIn</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <span>&copy; 2026 Daniel Horne</span>
-    <span>Phoenix, Arizona</span>
+    <span class="mono">&copy; 2026 Daniel Horne</span>
+    <span class="mono">Phoenix, Arizona</span>
   </footer>
 
 </div>

@@ -1,10 +1,31 @@
 # danielhorne.com
 
 Daniel Horne's personal site. One page, static HTML, no build system, no
-dependencies, no analytics, no web fonts. `index.html` is the whole site.
+dependencies, and no analytics. `index.html` is the whole site.
 
-Same visual system as `Whole-Yield/wholeyield-site` (warm cream, Iowan Old Style
-serif headings, light and dark via `prefers-color-scheme`).
+Two typefaces ship with the repo in `fonts/`: Instrument Serif (display) and
+Inter (body), both under the SIL Open Font License. They are SELF-HOSTED on
+purpose. Do not swap them for a Google Fonts or other CDN link: the point is
+that loading the page makes no third-party request, so no one else learns that
+a visitor was here. That property is asserted in the Whole Yield privacy
+policy, so breaking it here would make that document false.
+
+## Its look is deliberately NOT the Whole Yield look
+
+This site and `Whole-Yield/wholeyield-site` are meant to diverge. Daniel asked
+for that explicitly on 2026-07-21: "both, not matching each other."
+
+This page is art-directed editorial, built to the register of locomotive.ca,
+theoutline.com and palmer-dinnerware.com: a large Instrument Serif display face
+at weight 400, a persimmon accent, uppercase mono labels, hairline rules, no
+cards and no shadows. Whole Yield is the opposite register, modern product
+marketing in Inter with pill buttons and rounded cards.
+
+An earlier version of this file said "same visual system as wholeyield-site".
+That is now wrong, and it was actively harmful: an agent read that line, treated
+the shared style as evidence of Daniel's taste, and proposed a restyle that
+preserved a look he did not actually want. If these two sites ever converge
+again, it should be because he asked, not because a README said they matched.
 
 ## How it publishes
 
