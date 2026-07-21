@@ -60,9 +60,8 @@ you add one, check it first. Notes on the ones that are deliberately absent:
 - **No GitHub link.** github.com/danielahorne is a real account but shows **0
   public repositories** and no bio, because everything lives private under the
   Whole-Yield org. Linking it from a credibility page argues against the page.
-- **No Manna link.** Manna has no public URL. It is served tailnet-only over
-  Tailscale, so a link would be dead for everyone and would publish a private
-  tailnet hostname. The card says "In private beta" instead.
+- **No Manna link.** Manna has no public URL during the private beta, so a link
+  would be dead for everyone. The card says "In private beta" instead.
 - **No Lucentcast link.** Its marketing site is built but not published yet
   (Pages is not enabled on `Whole-Yield/postprod-service`, pending the live
   Stripe link swap). Card says "Launching soon."
